@@ -14,6 +14,10 @@ export const router = createRouter({
         {
             path: "/transactions",
             component: () => import('./views/TransactionsView.vue'),
+        },
+        {
+            path: '/dashboard',
+            component: () => import('./views/DashboardView.vue'),
         }
     ]
 })
