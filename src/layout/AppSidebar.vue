@@ -1,5 +1,5 @@
 <template>
-    <Card class="sidebar w-96 p-5 h-full flex flex-col justify-between mr-8">
+    <Card class="sidebar w-96 sticky top-8 p-5 h-full flex flex-col justify-between mr-8">
         <template #content>
             <div class="flex flex-col">
                 <div class="flex flex-col">

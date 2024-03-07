@@ -58,10 +58,10 @@
             </Card>
         </div>
 
-        <div class="flex">
+        <div class="flex mb-4">
             <Card class="h-fit mr-5">
                 <template #content>
-                    <DataTable :value="lots" :rows="10" :paginator="true" responsiveLayout="scroll">
+                    <DataTable :value="lots" :rows="10" tableStyle="min-width: 50rem" :paginator="true" responsiveLayout="scroll">
                         <template #header>
                             <span class="text-lg font-semibold">Recent Sales</span>
                         </template>
@@ -71,7 +71,7 @@
                                 <img src="../assets/snicker.png" :alt="slotProps.data.image" class="max-w-none w-[80px]" />
                             </template>
                         </Column>
-                        <Column field="name" header="Name" :sortable="true" style="width: 45%"></Column>
+                        <Column field="name" header="Name" :sortable="true" style="width: 25%"></Column>
                         <Column field="value" header="Price" :sortable="true" style="width: 15%">
                             <template #body="slotProps">
                                 {{ slotProps.data.value }} $
@@ -88,19 +88,11 @@
                 </template>
             </Card>
 
-            <div class="flex w-full flex-col">
-                <Card class="w-full h-[485px] pt-4 mb-5">
-                    <template #header>
-                        <span class="pl-6 mb-4 text-lg font-semibold">Sales Overview</span>
-                    </template>
-                    <template #content>
-                        <Chart class="h-full w-full" type="bar" :data="lineData" :options="lineOptions" />
-                    </template>
-                </Card>
-
+            <div class="flex w-full">
                 <Card class="w-full">
+                    
+
                     <template #content>
-                        <Menu :popup="true" :model="items"></Menu>
                         <div>
                             <span class="block font-semibold mb-3">TODAY</span>
                             <ul class="p-0 mx-0 mt-0 mb-4 list-none">
@@ -121,6 +113,17 @@
                 </Card>
             </div>
         </div>
+
+        <div class="">
+            <Card class="w-full pt-4 mb-5">
+                <template #header>
+                    <span class="pl-6 mb-4 text-lg font-semibold">Sales Overview</span>
+                </template>
+                <template #content>
+                    <Chart class="h-fit w-full" type="bar" :data="lineData" :options="lineOptions" />
+                </template>
+            </Card>
+        </div>
     </div>
 </template>
 
@@ -129,7 +132,6 @@ import Card from 'primevue/card';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Chart from 'primevue/chart';
-import Menu from 'primevue/menu';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -142,11 +144,6 @@ const goToUser = async () => {
 const goToLots = async () => {
     await router.push('/lots');
 }
-
-const items = ref([
-    { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-    { label: 'Remove', icon: 'pi pi-fw pi-minus' }
-]);
 
 const lots = [
     {
