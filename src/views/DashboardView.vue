@@ -61,7 +61,7 @@
         <div class="flex mb-4">
             <Card class="h-fit mr-5">
                 <template #content>
-                    <DataTable :value="lots" :rows="10" tableStyle="min-width: 50rem" :paginator="true" responsiveLayout="scroll">
+                    <DataTable :value="lots" :rows="10" :tableStyle="tableStyles" :paginator="true" responsiveLayout="scroll">
                         <template #header>
                             <span class="text-lg font-semibold">Recent Sales</span>
                         </template>
@@ -143,6 +143,10 @@ const goToUser = async () => {
 
 const goToLots = async () => {
     await router.push('/lots');
+}
+
+const tableStyles = {
+    'min-width': '50rem'
 }
 
 const lots = [
